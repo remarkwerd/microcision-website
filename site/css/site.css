@@ -251,6 +251,16 @@ h1, h2, h3, p, ul { margin: 0; }
 .dark .body-on-dark { font-size: 18px; line-height: 1.7; color: #B4BDCB; }
 .dark .quote { font-size: 30px; line-height: 1.35; font-weight: 500; letter-spacing: -.015em; color: var(--white); }
 
+/* ---------- Equipment: technical drawing panel (decoration only, no words) ---------- */
+.blueprint {
+  background-color: #0E1A33; color: #8FB3F5;
+  background-image: linear-gradient(rgba(143, 179, 245, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(143, 179, 245, .09) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.drawing { width: 100%; max-width: 520px; height: auto; }
+.contact-card { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.contact-card svg { flex: none; width: 20px; height: 20px; margin-top: 3px; color: var(--blue); }
+
 /* ---------- Jobs ---------- */
 .jobs { list-style: none; padding: 0; border-top: 1px solid var(--line); }
 .jobs li { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 28px 0; border-bottom: 1px solid var(--line); }
