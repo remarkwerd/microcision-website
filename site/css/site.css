@@ -215,8 +215,7 @@ h1, h2, h3, p, ul { margin: 0; }
 .gallery .card img { aspect-ratio: 3 / 2; }
 
 .logos { display: flex; flex-wrap: wrap; gap: 16px; }
-.logos a { display: block; width: 160px; padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
-.logos a:hover { border-color: var(--line-strong); }
+.logo-tile { width: 160px; padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
 
 /* ---------- Lists ---------- */
 .cells {
