@@ -11,7 +11,7 @@ The website for Microcision LLC (www.microcision.com).
 
 ## Hosting
 
-The site is hosted on Netlify and published from the `main` branch. (Setup in progress.)
+The site is hosted on Netlify and published from the `main` branch. Every change to `main` goes through a pull request; direct pushes are blocked. (Setup in progress.)
 
 ## Changing the site
 
