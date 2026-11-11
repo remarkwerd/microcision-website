@@ -207,7 +207,8 @@ h1, h2, h3, p, ul { margin: 0; }
 .panel .card.narrow { width: 72%; }
 
 .nowrap { white-space: nowrap; }
-.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+/* A wide photo next to a tall one: the columns follow each photo's shape (1240x628 and 2:3), so both show in full at the same height. */
+.pair { display: grid; grid-template-columns: minmax(0, 1.975fr) minmax(0, .667fr); gap: 32px; align-items: start; }
 .two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: start; }
 
 .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -335,6 +336,7 @@ textarea.field { resize: vertical; min-height: 150px; }
   .split.rev > .panel-first { order: 2; }
   .panel .card.narrow { width: 82%; }
   .pair { grid-template-columns: 1fr; gap: 20px; }
+  .pair-tall { width: 70%; justify-self: center; }
   .cells, .cells.three { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .form { grid-template-columns: 1fr; }
