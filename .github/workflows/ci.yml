@@ -31,6 +31,13 @@ jobs:
         run: npm run test:e2e
       - name: Speed and quality scores (Lighthouse)
         run: npm run test:lighthouse
+      - name: Show the Lighthouse numbers if the scores failed
+        if: failure()
+        run: |
+          for f in lighthouse-report/*.json; do
+            [ "$(basename "$f")" = manifest.json ] && continue
+            jq -r '"\(.finalDisplayedUrl): perf \(.categories.performance.score) | FCP \(.audits["first-contentful-paint"].displayValue) | LCP \(.audits["largest-contentful-paint"].displayValue) | TBT \(.audits["total-blocking-time"].displayValue) | CLS \(.audits["cumulative-layout-shift"].displayValue) | SI \(.audits["speed-index"].displayValue) | LCP element: \(.audits["largest-contentful-paint-element"].details.items[0].items[0].node.snippet // "?")"' "$f" 2>/dev/null || true
+          done
       - name: Save the test report if something failed
         if: failure()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

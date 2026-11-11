@@ -8,7 +8,7 @@
         "http://localhost/history/index.html",
         "http://localhost/cmm-programmer/index.html"
       ],
-      "numberOfRuns": 1
+      "numberOfRuns": 3
     },
     "assert": {
       "assertions": {
