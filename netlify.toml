@@ -1,0 +1,62 @@
+# Netlify settings for www.microcision.com.
+# The site is the plain files in site/. There is no build step.
+
+[build]
+  publish = "site"
+  command = ""
+
+# ---------------------------------------------------------------------------
+# Redirects for old Wix addresses.
+# Pages with the same name as on Wix (for example /history) need no rule:
+# Netlify serves site/history/index.html for both /history and /history/.
+# ---------------------------------------------------------------------------
+
+# Old job postings and the July 2026 announcement were dropped (decision D13).
+[[redirects]]
+  from = "/about-1"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/cnc-swiss-operators"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/cnc-lathe-set-up-and-operators"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/cnc-3-5-axis-milling-set-up-and-operator"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/finishing-operator"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/copy-of-finishing-operator"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/sales-manager"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/copy-of-sales-manager"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/copy-of-sales-business-develpment-m"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/general-5"
+  to = "/"
+  status = 301
+
+# The quality certificate PDF used to live at a Wix file address.
+[[redirects]]
+  from = "/_files/ugd/31e942_ce5f7565fa924c8483769d023a269bf7.pdf"
+  to = "/files/microcision-iso-13485-certificate.pdf"
+  status = 301
+
+# Security headers are added in Phase 7 of the plan (see the project plan).
