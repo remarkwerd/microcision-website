@@ -18,5 +18,10 @@
     "html-validate": "^9.0.0",
     "linkinator": "^6.0.0",
     "serve": "^14.2.0"
-  }
+  },
+  "overrides": {
+    "basic-ftp": "^6.2.1",
+    "compression": "^1.8.2"
+  },
+  "_comment_overrides": "Forces patched versions of two sub-dependencies of the test tools (npm audit, 2026-11-11). Remove once the tools ship them."
 }
