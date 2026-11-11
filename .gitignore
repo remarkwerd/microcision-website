@@ -6,3 +6,10 @@ playwright-report/
 *.local
 originals/
 .DS_Store
+
+# Private project documents: kept in the shared company folder, never in this repo
+# (the repo may be public). CI also fails if these appear (see the security workflow).
+Plan.md
+Architecture.md
+ACCOUNTS.md
+/docs/private/

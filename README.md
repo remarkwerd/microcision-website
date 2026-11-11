@@ -8,11 +8,10 @@ The website for Microcision LLC (www.microcision.com).
 - `baseline/`: an exact copy of the wording on the original Wix site, captured 2026-11-11. Every word on the new site has to come from here. **Do not edit this folder** except to add or update a job posting on purpose.
 - `tests/`: automatic checks that run on every change. They are not needed to publish.
 - `scripts/`: small helper tools.
-- `Plan.md`: the project plan and progress log.
 
 ## Hosting
 
-The site is hosted on Netlify and published from the `main` branch. (Setup in progress; see `Plan.md`.)
+The site is hosted on Netlify and published from the `main` branch. (Setup in progress.)
 
 ## Changing the site
 
