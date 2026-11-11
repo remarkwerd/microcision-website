@@ -1,0 +1,18 @@
+# Monthly, grouped update PRs for the test tooling and the CI actions.
+# Neither is needed to publish the site; this only keeps the safety net current.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-npm:
+        patterns: ["*"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-actions:
+        patterns: ["*"]
