@@ -1,0 +1,52 @@
+# Security checks on each pull request, on main, and every Monday.
+# "security / scan" is a required check.
+name: security
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * 1"
+permissions:
+  contents: read
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: No passwords or keys anywhere in the history (gitleaks)
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz | tar -xz gitleaks
+          ./gitleaks git . --redact --verbose
+      - name: Private project documents are not in the repo (decision D15)
+        run: |
+          bad=$(git ls-files | grep -E '(^|/)(Plan|Architecture|ACCOUNTS)\.md$|^docs/private/' || true)
+          if [ -n "$bad" ]; then echo "These files must stay in the shared company folder, not the public repo:"; echo "$bad"; exit 1; fi
+      - name: Photos carry no location or author data
+        run: |
+          python3 -m pip install --quiet --break-system-packages Pillow
+          python3 - <<'PY'
+          import pathlib, sys
+          from PIL import Image
+          bad = []
+          for f in pathlib.Path("site/images").iterdir():
+              ex = Image.open(f).getexif()
+              if ex.get_ifd(0x8825) or ex.get(0x013B) or ex.get(0x8298):
+                  bad.append(f.name)
+          if bad:
+              print("Strip metadata from:", *bad, sep="\n  "); sys.exit(1)
+          print("ok")
+          PY
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: lts/*
+      - name: Test tools have no known serious vulnerabilities
+        run: npm install --no-audit --no-fund && npm audit --audit-level=high
+      - name: New dependencies are safe (pull requests only)
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: high

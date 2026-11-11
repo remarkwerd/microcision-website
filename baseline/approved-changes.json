@@ -1,0 +1,18 @@
+{
+  "_readme": "Machine-readable copy of approved-changes.md, used by tests/text-fidelity.spec.ts. For each page, 'replace' maps an original Wix line to its approved new wording.",
+  "home": {
+    "replace": {
+      "-Small Bone Orthopedics": "Small Bone Orthopedics",
+      "-Spine Fusion": "Spine Fusion",
+      "-Dental Implant": "Dental Implant",
+      "-Neurological": "Neurological",
+      "-Maxillofacial": "Maxillofacial",
+      "-Hand, Wrist, Foot & Ankle": "Hand, Wrist, Foot & Ankle",
+      "-Drug Delivery Systems": "Drug Delivery Systems",
+      "-Numerous other Medical uses": "Numerous other Medical uses"
+    }
+  },
+  "_404": {
+    "add": ["Skip to Main Content", "HOME", "SERVICES", "ABOUT", "EXPANSION", "CAREERS", "CONTACT", "© 2022 by Microcision LLC"]
+  }
+}

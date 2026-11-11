@@ -1,0 +1,28 @@
+# Smoke test of the live site after each production deploy and every 6 hours.
+# Only runs once the repository variable PRODUCTION_URL is set (Phase 6:
+# https://microcision.netlify.app, then https://www.microcision.com after cutover).
+# On failure GitHub emails everyone who watches the repository.
+name: production
+on:
+  deployment_status:
+  schedule:
+    - cron: "41 */6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    if: vars.PRODUCTION_URL != '' && (github.event_name != 'deployment_status' || (github.event.deployment_status.state == 'success' && contains(github.event.deployment.environment, 'roduction')))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: ${{ vars.PRODUCTION_URL }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: lts/*
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Test the live site
+        run: npm run test:remote

@@ -1,0 +1,2 @@
+# OWASP ZAP rules: one line per accepted finding, tab-separated.
+# <rule id>	IGNORE|WARN|FAIL	(reason)
