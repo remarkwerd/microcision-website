@@ -1,0 +1,25 @@
+# microcision.com DNS baseline, transcribed from Network Solutions Advanced DNS screenshots
+# Captured 2026-11-11 (see baseline/dns-screenshots/). 20 records.
+# Rows marked [WEBSITE] are the only ones this project may change.
+# Note: a machine-generated snapshot from the authoritative nameservers (Phase 9, step 3) should replace this transcription later.
+
+A      *                                        23.236.62.147                                                    1h   [WEBSITE]
+A      @                                        23.236.62.147                                                    1h   [WEBSITE]
+A      connect                                  173.61.253.85                                                    1h
+A      ftp                                      173.61.253.85                                                    1h
+A      vpn                                      173.61.253.85                                                    1h
+CNAME  autodiscover                             autodiscover.outlook.com                                         1h
+CNAME  enterpriseenrollment                     enterpriseenrollment.manage.microsoft.com                        1h
+CNAME  enterpriseregistration                   enterpriseregistration.windows.net                               1h
+CNAME  lyncdiscover                             webdir.online.lync.com                                           1h
+CNAME  selector1._domainkey                     selector1-microcision-com._domainkey.microcision.onmicrosoft.com 1h
+CNAME  selector2._domainkey                     selector2-microcision-com._domainkey.microcision.onmicrosoft.com 1h
+CNAME  sip                                      sipdir.online.lync.com                                           1h
+CNAME  www                                      www224.wixdns.net                                                1h   [WEBSITE]
+MX     @                                        d285200a.ess.barracudanetworks.com                               1h
+MX     @                                        d285200b.ess.barracudanetworks.com                               1h
+TXT    @                                        _kty8v983fjjz2sb1vqeslzwcseo3t1h                                 1h
+TXT    @                                        _zyml8y5e7kimho80ddt77zknn5shl02                                 1h
+TXT    @                                        v=spf1 include:spf.protection.outlook.com include:spf.ess.barracudanetworks.com -all   2h
+SRV    _sip._tls                                sipdir.online.lync.com                                           1h
+SRV    _sipfederationtls._tcp                   sipfed.online.lync.com                                           1h

@@ -1,0 +1,28 @@
+{
+  "url": "https://www.microcision.com/",
+  "title": "HOME | Microcision",
+  "desc": null,
+  "og": null,
+  "robots": null,
+  "imgs": [
+    "Microcision logo.png | 31e942_ef154a865afe4fa79723417987ebbaeb~mv2.png",
+    " | 31e942_5c9bcb92d7ab4263aea108752bd3868b~mv2_d_5016_3648_s_4_2.jpg",
+    " | 31e942_fe148f26544544009a844bf227026b70~mv2_d_5472_3648_s_4_2.jpg",
+    " | 31e942_c059344d122847388e41a13950839223~mv2_d_5472_3648_s_4_2.jpg",
+    " | 31e942_a0458f0192b948f4afb3dbc20ceddcca~mv2.jpg",
+    " | 5bfb6f_c9a631e8e43443cb9d7ad97133d9d83d.jpg",
+    "_MG_1980.jpg | 31e942_7453f015931e4b2fba0012b001c735e3~mv2_d_3403_5104_s_4_2.jpg",
+    " | dbbdc91820535cbbeb0664011cb93255.png"
+  ],
+  "form": [
+    "INPUT | text | name-* | Name * | true |  | ",
+    "INPUT | email | email | Email * | true |  | ",
+    "INPUT | text | subject | Subject | false |  | ",
+    "TEXTAREA | textarea |  | Message | false |  | ",
+    "BUTTON | submit |  |  |  |  | SEND  "
+  ],
+  "iframes": [
+    "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/media/goo"
+  ],
+  "sha256": "8b5cbd356ba28290d2668c0c91975c7f58baba8aa6bf7233937c418cbaab8e85"
+}
