@@ -1,0 +1,28 @@
+# Weekly check of links to other websites. Outside sites go down on their own,
+# so this never blocks a change: it opens an issue instead.
+name: links-external
+on:
+  schedule:
+    - cron: "23 7 * * 3"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+jobs:
+  external:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: lts/*
+      - run: npm install --no-audit --no-fund
+      - name: Check every link, including outside sites
+        id: links
+        run: npx linkinator site --recurse --skip "mailto:" --retry --format text
+      - name: Open an issue if a link is broken
+        if: failure() && steps.links.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Broken outside link found ($(date +%F))" --body "The weekly link check failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

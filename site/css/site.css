@@ -55,6 +55,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline-offset: 2px;
 }
 h1, h2, h3, p, ul { margin: 0; }
+/* Links inside running text are underlined, so they don't rely on color alone. */
+p a:not(.btn):not(.address) { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
 .mono { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; }
 .visually-hidden {
@@ -215,8 +217,7 @@ h1, h2, h3, p, ul { margin: 0; }
 .gallery .card img { aspect-ratio: 3 / 2; }
 
 .logos { display: flex; flex-wrap: wrap; gap: 16px; }
-.logos a { display: block; width: 160px; padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
-.logos a:hover { border-color: var(--line-strong); }
+.logo-tile { width: 160px; padding: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 14px; }
 
 /* ---------- Lists ---------- */
 .cells {

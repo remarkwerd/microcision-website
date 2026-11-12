@@ -1,0 +1,27 @@
+{
+  "name": "microcision-website",
+  "private": true,
+  "description": "Test tooling only. None of this is needed to publish the site: Netlify serves the plain files in site/.",
+  "scripts": {
+    "serve": "serve site -l 4173 --no-clipboard",
+    "test": "npm run test:html && npm run test:links && npm run test:e2e",
+    "test:html": "html-validate \"site/**/*.html\"",
+    "test:links": "linkinator site --recurse --skip \"^(?!http://localhost)\"",
+    "test:e2e": "playwright test",
+    "test:lighthouse": "lhci autorun",
+    "test:remote": "playwright test tests/headers.spec.ts tests/e2e.spec.ts tests/redirects.spec.ts --project=chromium"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@lhci/cli": "^0.16.0",
+    "@playwright/test": "^1.50.0",
+    "html-validate": "^9.0.0",
+    "linkinator": "^6.0.0",
+    "serve": "^14.2.0"
+  },
+  "overrides": {
+    "basic-ftp": "^6.2.1",
+    "compression": "^1.8.2"
+  },
+  "_comment_overrides": "Forces patched versions of two sub-dependencies of the test tools (npm audit, 2026-11-11). Remove once the tools ship them."
+}
